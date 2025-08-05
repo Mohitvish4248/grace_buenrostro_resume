@@ -108,7 +108,6 @@ textarea {
     resize: vertical;
 }
 
-/* Existing button styles ko thoda adjust karte hain */
 button, .cta-btn, .resume-btn {
     background-color: #1B263B;
     color: #FFFFFF;
@@ -118,9 +117,7 @@ button, .cta-btn, .resume-btn {
     cursor: pointer;
     font-size: 1rem;
     text-align: center;
-    display:Inline-block; /* Inline-block se block banane se full width control milega */
-    width: 100%; /* Full width like Send Message */
-    margin: 0.5rem 0; /* Top and bottom gap for balance */
+    display: inline-block;
     transition: background-color 0.3s;
 }
 
@@ -128,7 +125,6 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
     background-color: #6B7280;
 }
 
-/* Mobile specific tweak */
 @media (max-width: 600px) {
     nav ul {
         flex-direction: column;
@@ -137,12 +133,6 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
     }
     nav a {
         padding: 0.5rem 0;
-        font-size: 1rem; /* Ensures text fits on small screens */
-        width: 100%; /* Full width for each button */
-    }
-    button, .cta-btn, .resume-btn {
-        width: 100%; /* Ensures buttons fit mobile screen */
-        margin: 0.5rem 0;
     }
     section {
         padding: 2rem 1rem;
@@ -153,10 +143,10 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
     h2 {
         font-size: 1.5rem;
     }
-    .job {
+    .job, .achievement {
         padding: 1rem;
     }
-    input, textarea {
+    input, textarea, button, .cta-btn, .resume-btn {
         width: 100%;
     }
 }
