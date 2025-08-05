@@ -133,6 +133,12 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
     }
     nav a {
         padding: 0.5rem 0;
+        font-size: 1rem; /* Ensures text fits on small screens */
+        width: 100%; /* Full width for each button */
+    }
+    button, .cta-btn, .resume-btn {
+        width: 100%; /* Ensures buttons fit mobile screen */
+        margin: 0.5rem 0;
     }
     section {
         padding: 2rem 1rem;
@@ -143,10 +149,10 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
     h2 {
         font-size: 1.5rem;
     }
-    .job, .achievement {
+    .job {
         padding: 1rem;
     }
-    input, textarea, button, .cta-btn, .resume-btn {
+    input, textarea {
         width: 100%;
     }
 }
