@@ -137,12 +137,12 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
     }
     nav a {
         padding: 0.5rem 0;
-        font-size: 1rem;
-        width: 100%;
+        font-size: 1rem; /* Ensures text fits on small screens */
+        width: 100%; /* Full width for each button */
     }
     button, .cta-btn, .resume-btn {
-        width: 100%; /* Ensures all buttons fit mobile */
-        margin: 0.5rem 0; /* Consistent gap */
+        width: 100%; /* Ensures buttons fit mobile screen */
+        margin: 0.5rem 0;
     }
     section {
         padding: 2rem 1rem;
