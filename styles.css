@@ -118,6 +118,7 @@ textarea {
     margin-right: auto;
 }
 
+/* Add or update this to remove underlines from buttons */
 button, .cta-btn, .resume-btn {
     background-color: #1B263B;
     color: #FFFFFF;
@@ -127,16 +128,18 @@ button, .cta-btn, .resume-btn {
     cursor: pointer;
     font-size: 1rem;
     text-align: center;
-    display: inline-block; /* Changed from block to inline-block for text fit */
+    display: inline-block; /* Text-based sizing */
     transition: background-color 0.3s;
-    width: auto; /* Removes full width, adjusts to content */
-    margin: 0.5rem 0; /* Maintains vertical spacing */
+    width: auto; /* Fits content */
+    margin: 0.5rem 0; /* Vertical spacing */
+    text-decoration: none; /* Removes underline from <a> tags */
 }
 
 button:hover, .cta-btn:hover, .resume-btn:hover {
     background-color: #6B7280;
 }
 
+/* Mobile specific tweak */
 @media (max-width: 600px) {
     nav ul {
         flex-direction: column;
@@ -164,8 +167,8 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
         width: 100%;
     }
     button, .cta-btn, .resume-btn {
-        width: auto; /* Ensures buttons fit content, not full width */
-        padding: 0.5rem 1rem; /* Reduces padding for smaller size */
+        width: auto; /* Ensures buttons fit content */
+        padding: 0.5rem 1rem; /* Adjusted padding for mobile */
         display: inline-block; /* Keeps text-based sizing */
     }
 }
