@@ -117,6 +117,7 @@ textarea {
     margin-left: auto;
     margin-right: auto;
     align-items: center; /* Centers the buttons horizontally */
+    padding-top: 0; /* Ensures no extra space above buttons */
 }
 
 /* Add or update this to remove underlines from buttons */
@@ -131,9 +132,23 @@ button, .cta-btn, .resume-btn {
     text-align: center;
     display: inline-block; /* Text-based sizing */
     transition: background-color 0.3s;
-    width: auto; /* Fits content */
     margin: 0.5rem 0; /* Vertical spacing */
     text-decoration: none; /* Removes underline from <a> tags */
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+button, .resume-btn {
+    width: 100%; /* Matches the width of Send Message within max-width */
+}
+
+.cta-btn {
+    width: auto; /* Keeps original size for Get in Touch */
+}
+
+/* Specific styling for Download Resume button to make it smaller */
+.resume-btn.download-smaller {
+    width: 70%; /* Makes it smaller than full width */
+    padding: 0.5rem 1rem; /* Reduces padding for a compact look */
 }
 
 button:hover, .cta-btn:hover, .resume-btn:hover {
@@ -168,8 +183,15 @@ button:hover, .cta-btn:hover, .resume-btn:hover {
         width: 100%;
     }
     button, .cta-btn, .resume-btn {
-        width: auto; /* Ensures buttons fit content */
+        width: auto; /* Ensures buttons fit content within mobile */
         padding: 0.5rem 1rem; /* Adjusted padding for mobile */
         display: inline-block; /* Keeps text-based sizing */
+    }
+    button, .resume-btn {
+        width: 100%; /* Matches Send Message width on mobile */
+    }
+    .resume-btn.download-smaller {
+        width: 70%; /* Keeps smaller size on mobile */
+        padding: 0.5rem 1rem; /* Compact look */
     }
 }
