@@ -109,7 +109,7 @@ textarea {
 }
 
 .button-group {
-    margin-top: 1.5rem; /* Space between form and buttons */
+    /* Removed margin-top to place buttons just below Send Message */
     display: flex;
     flex-direction: column;
     gap: 1rem; /* Gap between the two buttons */
