@@ -195,11 +195,6 @@ button:active, .cta-btn:active, .resume-btn:active {
     animation: blink 0.25s ease;
 }
 
-.resume-btn.download-smaller {
-    width: 85%; /* Slightly smaller than LinkedIn and Send Message buttons */
-    height: 36px; /* Slightly shorter height */
-    padding: 0.6rem 1rem; /* Adjusted padding for compact look */
-}
 
 @keyframes blink {
     0% { transform: scale(1); opacity: 1; background: linear-gradient(to bottom, #1B263B, #2A3447); }
