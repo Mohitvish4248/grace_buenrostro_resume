@@ -174,36 +174,48 @@
     </div>
 </section>
         <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
-        (function() {
-            emailjs.init("NHHxSa9QjFBm4PL8w"); // Grace's Public Key
-        })();
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function() {
+    emailjs.init("NHHxSa9QjFBm4PL8w"); // Grace's Public Key
+})();
 
-        document.getElementById("enquiryForm").addEventListener("submit", function(e) {
-            e.preventDefault();
-            const form = this;
-            const status = document.getElementById("form-status");
-            const email = form.email.value.trim();
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+const form = document.getElementById("enquiryForm");
+if (form) {
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const status = document.getElementById("form-status");
+        const email = form.email.value.trim();
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
-            if (!emailPattern.test(email)) {
-                status.textContent = "❌ Please enter a valid Gmail address (e.g. yourname@gmail.com)";
+        if (!emailPattern.test(email)) {
+            status.textContent = "❌ Please enter a valid Gmail address (e.g. yourname@gmail.com)";
+            status.style.color = "red";
+            return;
+        }
+
+        emailjs.sendForm("service_gef3syk", "template_gwwenja", form)
+            .then(() => {
+                status.textContent = "✅ Enquiry Sent Successfully!";
+                status.style.color = "#10b981";
+                form.reset();
+            }, (err) => {
+                status.textContent = "❌ Failed to send. Please try again.";
                 status.style.color = "red";
-                return;
-            }
+                console.log(err);
+            });
+    });
+}
+</script>
 
-            emailjs.sendForm("service_gef3syk", "template_gwwenja", form)
-                .then(() => {
-                    status.textContent = "✅ Enquiry Sent Successfully!";
-                    status.style.color = "#10b981";
-                    form.reset();
-                }, (err) => {
-                    status.textContent = "❌ Failed to send. Please try again.";
-                    status.style.color = "red";
-                    console.log(err);
-                });
-        });
-    </script>
+<!-- Navbar toggle -->
+<script>
+const navToggle = document.querySelector(".nav-toggle");
+const navMenu = document.querySelector(".nav-menu");
+
+navToggle.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+});
+</script>
 </body>
 </html>
