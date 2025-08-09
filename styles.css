@@ -132,11 +132,11 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 0; /* Remove default margin */
+    margin-bottom: 0.5rem; /* Match button-group gap */
 }
 
 #form-status {
-    margin: 0.5rem 0 0 0; /* Match button-group gap */
+    margin: 0.5rem 0 0 0; /* Consistent spacing with button-group */
     text-align: center;
 }
 
@@ -162,6 +162,7 @@ textarea {
     max-width: 500px;
     margin: 0 auto;
     align-items: center;
+    justify-content: center;
     padding-top: 0;
 }
 
@@ -178,7 +179,7 @@ button, .cta-btn, .linkedin-btn {
     align-items: center;
     justify-content: center;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    margin: 0;
+    margin: 0 auto; /* Center buttons */
     text-decoration: none;
     box-sizing: border-box;
     width: 85%;
@@ -190,7 +191,7 @@ button, .cta-btn, .linkedin-btn {
 }
 
 .cta-btn {
-    width: auto;
+    width: 85%; /* Match other buttons */
 }
 
 button:hover, .cta-btn:hover, .linkedin-btn:hover {
@@ -274,7 +275,7 @@ button:active, .cta-btn:active, .linkedin-btn:active {
         max-width: 100%;
         padding: 0 1rem;
         box-sizing: border-box;
-        margin-bottom: 0;
+        margin-bottom: 0.5rem;
     }
     #form-status {
         margin: 0.5rem 0 0 0;
@@ -286,12 +287,15 @@ button:active, .cta-btn:active, .linkedin-btn:active {
     .button-group {
         max-width: 100%;
         padding: 0 1rem;
+        align-items: center;
+        justify-content: center;
     }
     button, .linkedin-btn {
         width: 85%;
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
         height: 36px;
+        margin: 0 auto;
     }
 }
 
