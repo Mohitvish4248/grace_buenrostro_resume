@@ -138,11 +138,11 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 0.1rem; /* Further reduced gap */
+    margin-bottom: 0.1rem; /* Tight gap */
 }
 
 #form-status {
-    margin: 0.1rem 0 0 0; /* Further reduced gap */
+    margin: 0.1rem 0 0 0; /* Tight gap */
     text-align: center;
 }
 
@@ -164,7 +164,7 @@ textarea {
 .button-group {
     display: flex;
     flex-direction: column;
-    gap: 0.1rem; /* Further reduced gap */
+    gap: 0.1rem; /* Tight gap */
     max-width: 500px;
     margin: 0 auto;
     align-items: center;
@@ -178,7 +178,6 @@ button, .linkedin-btn, .cta-btn {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 0.9rem;
     text-align: center;
     display: flex;
     align-items: center;
@@ -191,11 +190,21 @@ button, .linkedin-btn, .cta-btn {
     overflow: hidden;
 }
 
-button, .linkedin-btn {
+button {
     padding: 0.6rem 1rem;
     width: 85%;
     height: 36px;
-    margin: 0 auto; /* Center buttons */
+    margin: 0 auto; /* Center button */
+    font-size: 0.9rem;
+    line-height: 1;
+}
+
+.linkedin-btn {
+    padding: 0.5rem 0.8rem; /* Smaller padding */
+    width: 75%; /* Smaller width */
+    height: 32px; /* Smaller height */
+    margin: 0 auto; /* Center button */
+    font-size: 0.85rem; /* Smaller font */
     line-height: 1;
 }
 
@@ -308,11 +317,18 @@ button:active, .linkedin-btn:active, .cta-btn:active {
         justify-content: center;
         gap: 0.1rem;
     }
-    button, .linkedin-btn {
+    button {
         width: 85%;
         padding: 0.6rem 1rem;
         font-size: 0.9rem;
         height: 36px;
+        margin: 0 auto;
+    }
+    .linkedin-btn {
+        width: 75%;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+        height: 32px;
         margin: 0 auto;
     }
     .cta-btn {
