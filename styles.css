@@ -370,6 +370,17 @@ button:active, .linkedin-btn:active, .cta-btn:active {
     }
 }
 
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color:  #FFFFFF;
+  color:#1B263B;
+  font-size: 14px;
+  position: relative; /* ya fixed agar bottom pe chipkana ho */
+  bottom: 0;
+  width: 100%;
+}
+
 @media (min-width: 601px) {
     .nav-toggle {
         display: none;
