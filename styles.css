@@ -132,6 +132,12 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-bottom: 0; /* Remove default margin */
+}
+
+#form-status {
+    margin: 0.5rem 0 0 0; /* Match button-group gap */
+    text-align: center;
 }
 
 input, textarea {
@@ -152,30 +158,31 @@ textarea {
 .button-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* Pehle jyada tha, ab kam */
+    gap: 0.5rem;
     max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
     align-items: center;
     padding-top: 0;
 }
 
-button, .cta-btn, .resume-btn {
+button, .cta-btn, .linkedin-btn {
     background: linear-gradient(to bottom, #1B263B, #2A3447);
     color: #FFFFFF;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1rem;
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 0.9rem;
     text-align: center;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
-    margin: 0.5rem 0;
+    margin: 0;
     text-decoration: none;
     box-sizing: border-box;
-    width: 100%;
-    height: 38px;
+    width: 85%;
+    height: 36px;
     line-height: 1;
     box-shadow: 0 3px 6px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.4);
     position: relative;
@@ -186,56 +193,23 @@ button, .cta-btn, .resume-btn {
     width: auto;
 }
 
-button:hover, .cta-btn:hover, .resume-btn:hover {
+button:hover, .cta-btn:hover, .linkedin-btn:hover {
     background: linear-gradient(to bottom, #6B7280, #5A606F);
     box-shadow: 0 4px 8px rgba(0,0,0,0.25), inset 0 1px 2px rgba(255,255,255,0.5);
 }
 
-button:active, .cta-btn:active, .resume-btn:active {
+button:active, .cta-btn:active, .linkedin-btn:active {
     animation: blink 0.25s ease;
 }
-/* LinkedIn button - exactly same as Send Message */
+
 .linkedin-btn {
-    background: linear-gradient(to bottom, #1B263B, #2A3447);
-    color: #FFFFFF !important;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 1rem;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     gap: 8px;
-    text-decoration: none !important;
-    box-sizing: border-box;
-    width: 100%;
-    height: 38px;
-    line-height: 1;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.4);
-    position: relative;
-    overflow: hidden;
-    margin: 0; /* Extra space remove */
-}
-
-.linkedin-btn:hover {
-    background: linear-gradient(to bottom, #6B7280, #5A606F);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.25), inset 0 1px 2px rgba(255,255,255,0.5);
-}
-
-.linkedin-btn:active {
-    animation: blink 0.25s ease;
 }
 
 .linkedin-icon {
     width: 18px;
     height: 18px;
 }
-
-.linkedin-btn:hover {
-    background: linear-gradient(to bottom, #6B7280, #5A606F);
-    box-shadow: 0 4px 8px rgba(0,0,0,
 
 @keyframes blink {
     0% { transform: scale(1); opacity: 1; background: linear-gradient(to bottom, #1B263B, #2A3447); }
@@ -246,9 +220,12 @@ button:active, .cta-btn:active, .resume-btn:active {
 @media (max-width: 600px) {
     .nav-brand {
         display: block;
+        order: -1; /* Left side */
     }
     .nav-toggle {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        order: 1; /* Right side */
     }
     .nav-menu {
         display: none;
@@ -261,6 +238,7 @@ button:active, .cta-btn:active, .resume-btn:active {
         padding: 1rem;
         border-radius: 4px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        z-index: 100;
     }
     .nav-menu.active {
         display: flex;
@@ -296,6 +274,10 @@ button:active, .cta-btn:active, .resume-btn:active {
         max-width: 100%;
         padding: 0 1rem;
         box-sizing: border-box;
+        margin-bottom: 0;
+    }
+    #form-status {
+        margin: 0.5rem 0 0 0;
     }
     input, textarea {
         width: 100%;
@@ -305,11 +287,11 @@ button:active, .cta-btn:active, .resume-btn:active {
         max-width: 100%;
         padding: 0 1rem;
     }
-    button, .resume-btn {
-        width: 100%;
-        padding: 0.75rem 1rem;
+    button, .linkedin-btn {
+        width: 85%;
+        padding: 0.6rem 1rem;
         font-size: 0.9rem;
-        height: 38px;
+        height: 36px;
     }
 }
 
