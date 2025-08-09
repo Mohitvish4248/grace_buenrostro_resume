@@ -216,6 +216,14 @@ const navMenu = document.querySelector(".nav-menu");
 navToggle.addEventListener("click", () => {
     navMenu.classList.toggle("active");
 });
+
+// ✅ Close menu on link click (mobile)
+document.querySelectorAll(".nav-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+        navMenu.classList.remove("active");
+    });
+});
 </script>
+
 </body>
 </html>
