@@ -152,7 +152,7 @@ textarea {
 .button-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem; /* Pehle jyada tha, ab kam */
+    gap: 1rem; /* Form ke jaisa gap */
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
@@ -160,7 +160,7 @@ textarea {
     padding-top: 0;
 }
 
-button, .cta-btn, .resume-btn {
+button, .cta-btn {
     background: linear-gradient(to bottom, #1B263B, #2A3447);
     color: #FFFFFF;
     padding: 0.75rem 1.5rem;
@@ -186,16 +186,16 @@ button, .cta-btn, .resume-btn {
     width: auto;
 }
 
-button:hover, .cta-btn:hover, .resume-btn:hover {
+button:hover, .cta-btn:hover {
     background: linear-gradient(to bottom, #6B7280, #5A606F);
     box-shadow: 0 4px 8px rgba(0,0,0,0.25), inset 0 1px 2px rgba(255,255,255,0.5);
 }
 
-button:active, .cta-btn:active, .resume-btn:active {
+button:active, .cta-btn:active {
     animation: blink 0.25s ease;
 }
 
-/* LinkedIn button smaller size */
+/* LinkedIn button */
 .linkedin-btn {
     width: 85%;
     height: 36px;
@@ -209,9 +209,8 @@ button:active, .cta-btn:active, .resume-btn:active {
     text-decoration: none !important;
     border-radius: 6px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.2), inset 0 1px 2px rgba(255,255,255,0.4);
-    margin-top: 0; /* Ye badla - ab gap form ke inputs jaisa ho jayega */
+    margin-top: 0; /* Extra gap remove */
 }
-
 
 .linkedin-btn:hover {
     background: linear-gradient(to bottom, #6B7280, #5A606F) !important;
@@ -290,7 +289,7 @@ button:active, .cta-btn:active, .resume-btn:active {
         max-width: 100%;
         padding: 0 1rem;
     }
-    button, .resume-btn {
+    button, .linkedin-btn {
         width: 100%;
         padding: 0.75rem 1rem;
         font-size: 0.9rem;
