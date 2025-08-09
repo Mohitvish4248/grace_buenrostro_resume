@@ -89,6 +89,12 @@ section {
     scroll-margin-top: 70px;
 }
 
+#home {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to left */
+}
+
 h1 {
     font-size: 2.5rem;
     color: #1B263B;
@@ -136,7 +142,7 @@ form {
 }
 
 #form-status {
-    margin: 0.5rem 0 0 0; /* Consistent spacing with button-group */
+    margin: 0.5rem 0 0 0; /* Consistent spacing */
     text-align: center;
 }
 
@@ -166,7 +172,7 @@ textarea {
     padding-top: 0;
 }
 
-button, .cta-btn, .linkedin-btn {
+button, .linkedin-btn {
     background: linear-gradient(to bottom, #1B263B, #2A3447);
     color: #FFFFFF;
     padding: 0.6rem 1rem;
@@ -191,7 +197,10 @@ button, .cta-btn, .linkedin-btn {
 }
 
 .cta-btn {
-    width: 85%; /* Match other buttons */
+    width: auto; /* Smaller size */
+    padding: 0.5rem 1rem; /* Reduced padding */
+    height: auto; /* Auto height for smaller appearance */
+    margin-right: auto; /* Align to left */
 }
 
 button:hover, .cta-btn:hover, .linkedin-btn:hover {
@@ -255,6 +264,9 @@ button:active, .cta-btn:active, .linkedin-btn:active {
         padding: 1.5rem 1rem;
         scroll-margin-top: 60px;
     }
+    #home {
+        align-items: flex-start; /* Keep content left-aligned */
+    }
     h1 {
         font-size: 1.8rem;
     }
@@ -296,6 +308,12 @@ button:active, .cta-btn:active, .linkedin-btn:active {
         font-size: 0.9rem;
         height: 36px;
         margin: 0 auto;
+    }
+    .cta-btn {
+        width: auto;
+        padding: 0.5rem 1rem;
+        height: auto;
+        margin-right: auto;
     }
 }
 
