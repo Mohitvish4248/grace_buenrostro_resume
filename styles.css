@@ -198,9 +198,11 @@ button, .linkedin-btn {
 
 .cta-btn {
     width: auto; /* Smaller size */
-    padding: 0.5rem 1rem; /* Reduced padding */
-    height: auto; /* Auto height for smaller appearance */
+    padding: 0.4rem 0.8rem; /* Even smaller padding */
+    height: auto; /* Auto height */
+    font-size: 0.85rem; /* Smaller font */
     margin-right: auto; /* Align to left */
+    margin-left: 0; /* Ensure no left margin */
 }
 
 button:hover, .cta-btn:hover, .linkedin-btn:hover {
@@ -311,9 +313,11 @@ button:active, .cta-btn:active, .linkedin-btn:active {
     }
     .cta-btn {
         width: auto;
-        padding: 0.5rem 1rem;
+        padding: 0.4rem 0.8rem;
         height: auto;
+        font-size: 0.85rem;
         margin-right: auto;
+        margin-left: 0;
     }
 }
 
