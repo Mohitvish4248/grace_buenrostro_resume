@@ -161,17 +161,49 @@
 
     <section id="contact">
     <h2>Contact</h2>
-    <form id="contact-form">
-        <input type="text" name="name" placeholder="Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
+   <form id="enquiryForm">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+    <p id="form-status"></p> <!-- status message yaha show hoga -->
+</form>
+
     <div class="button-group">
         <a href="https://linkedin.com/in/grace-buenrostro" class="resume-btn">LinkedIn Profile</a>
     </div>
 </section>
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="script.js"></script>
+        <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("NHHxSa9QjFBm4PL8w"); // Grace's Public Key
+        })();
+
+        document.getElementById("enquiryForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const form = this;
+            const status = document.getElementById("form-status");
+            const email = form.email.value.trim();
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+
+            if (!emailPattern.test(email)) {
+                status.textContent = "❌ Please enter a valid Gmail address (e.g. yourname@gmail.com)";
+                status.style.color = "red";
+                return;
+            }
+
+            emailjs.sendForm("service_gef3syk", "template_gwwenja", form)
+                .then(() => {
+                    status.textContent = "✅ Enquiry Sent Successfully!";
+                    status.style.color = "#10b981";
+                    form.reset();
+                }, (err) => {
+                    status.textContent = "❌ Failed to send. Please try again.";
+                    status.style.color = "red";
+                    console.log(err);
+                });
+        });
+    </script>
 </body>
 </html>
