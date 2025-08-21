@@ -363,7 +363,6 @@ section:nth-child(even) {
     margin: 0 auto;
     align-items: center; /* Isse button center mein aa jayega */
 }
-#contact-form input,
 #contact-form textarea {
     width: 100%;
     padding: 1rem;
@@ -523,4 +522,26 @@ footer {
         font-size: 1.2rem;
     }
 
+}
+/* LinkedIn Button & Icon Styling */
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center; /* Icon aur text ko vertically center karta hai */
+    gap: 8px; /* Icon aur text ke beech thodi jagah deta hai */
+    text-decoration: none;
+    color: #fff;
+    background-color: #0077B5; /* LinkedIn ka official blue color */
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.linkedin-btn:hover {
+    background-color: #0e6795; /* Hover pe thoda dark color */
+}
+
+.linkedin-icon {
+    width: 24px;  /* Yahan se aap icon ka size control kar sakte hain */
+    height: 24px;
 }
