@@ -136,24 +136,40 @@
 <footer>
     &copy; 2025 Grace Buenrostro. All rights reserved.
     </footer>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
+ <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
     (function() {
-        emailjs.init(""); // Public Key
+        emailjs.init("NHHxSa9QjFBm4PL8w");
     })();
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+    const form = document.getElementById("enquiryForm");
+    if (form) {
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const status = document.getElementById("form-status");
+            const email = form.email.value.trim();
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
-        emailjs.sendForm('', 'template_gwwenja', this)
-            .then(function() {
-                alert('Message sent successfully!');
-                document.getElementById('contact-form').reset();
-            }, function(error) {
-                alert('Failed to send message. Error: ' + JSON.stringify(error));
-            });
-    });
-</script>
+            if (!emailPattern.test(email)) {
+                status.textContent = "❌ Please enter a valid Gmail address (e.g. yourname@gmail.com)";
+                status.style.color = "red";
+                return;
+            }
+
+            emailjs.sendForm("service_gef3syk", "template_gwwenja", form)
+                .then(() => {
+                    status.textContent = "✅ Enquiry Sent Successfully!";
+                    status.style.color = "#10b981";
+                    form.reset();
+                }, (err) => {
+                    status.textContent = "❌ Failed to send. Please try again.";
+                    status.style.color = "red";
+                    console.log(err);
+                });
+        });
+    }
+    </script>
 <script>
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
