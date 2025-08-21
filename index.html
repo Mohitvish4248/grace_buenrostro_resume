@@ -123,14 +123,14 @@
 
     <section id="contact">
         <h2>Contact</h2>
-        <form id="contact-form">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" placeholder="Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-        <!-- ✅ Status message div added -->
-        <p id="form-status"></p>
+       <form id="contact-form">
+    <input type="text" name="name" placeholder="Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="message" placeholder="Message" required></textarea>
+    <button type="submit">Send Message</button>
+</form>
+<p id="form-status"></p>
+
         <div class="button-group">
             <a href="https://linkedin.com/in/mohitvish" class="resume-btn"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
         </div>
@@ -147,31 +147,32 @@
     })();
 
     const form = document.getElementById('contact-form');
-    if (form) {
-        form.addEventListener("submit", function(e) {
-            e.preventDefault();
-            const status = document.getElementById("form-status");
-            const email = form.from_email.value.trim(); // ✅ corrected
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+if (form) {
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+        const status = document.getElementById("form-status");
+        const email = form.email.value.trim(); // ✅ ab 'email' hai
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
-            if (!emailPattern.test(email)) {
-                status.textContent = "❌ Please enter a valid Gmail address (e.g. yourname@gmail.com)";
+        if (!emailPattern.test(email)) {
+            status.textContent = "❌ Please enter a valid Gmail address (e.g. yourname@gmail.com)";
+            status.style.color = "red";
+            return;
+        }
+
+        emailjs.sendForm("service_gef3syk", "template_gwwenja", form)
+            .then(() => {
+                status.textContent = "✅ Enquiry Sent Successfully!";
+                status.style.color = "#10b981";
+                form.reset();
+            }, (err) => {
+                status.textContent = "❌ Failed to send. Please try again.";
                 status.style.color = "red";
-                return;
-            }
+                console.log(err);
+            });
+    });
+}
 
-            emailjs.sendForm("service_f0afa0h", "template_t8qg9kg", form)
-                .then(() => {
-                    status.textContent = "✅ Enquiry Sent Successfully!";
-                    status.style.color = "#10b981";
-                    form.reset();
-                }, (err) => {
-                    status.textContent = "❌ Failed to send. Please try again.";
-                    status.style.color = "red";
-                    console.log(err);
-                });
-        });
-    }
 </script>
 
 <script>
