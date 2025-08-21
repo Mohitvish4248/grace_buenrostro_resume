@@ -356,15 +356,15 @@ section:nth-child(even) {
 /*
  * Contact Section
  */
-#contact-form {
+#enquiryForm {
     display: flex;
     flex-direction: column;
     max-width: 600px;
     margin: 0 auto;
     align-items: center; /* Isse button center mein aa jayega */
 }
-#contact-form input,
-#contact-form textarea {
+#enquiryForm input,
+#enquiryForm textarea {
     width: 100%;
     padding: 1rem;
     margin-bottom: 1rem;
