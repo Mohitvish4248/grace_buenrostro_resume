@@ -122,24 +122,28 @@
     </section>
 
     <section id="contact">
-    <h2>Contact</h2>
-    <form id="contact-form">
-        <input type="text" name="from_name" placeholder="Name" required>
-        <input type="email" name="from_email" placeholder="Email" required>
-        <textarea name="message" placeholder="Message" required></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-    <div class="button-group">
-        <a href="https://linkedin.com/in/mohitvish" class="resume-btn"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
-    </div>
-</section>
-<footer>
-    &copy; 2025 DEMO RESUME. All rights reserved.
+        <h2>Contact</h2>
+        <form id="contact-form">
+            <input type="text" name="from_name" placeholder="Name" required>
+            <input type="email" name="from_email" placeholder="Email" required>
+            <textarea name="message" placeholder="Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <!-- ✅ Status message div added -->
+        <p id="form-status"></p>
+        <div class="button-group">
+            <a href="https://linkedin.com/in/mohitvish" class="resume-btn"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2025 DEMO RESUME. All rights reserved.
     </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
+<script>
     (function() {
-        emailjs.init("NHHxSa9QjFBm4PL8w");
+        emailjs.init("NHHxSa9QjFBm4PL8w"); // ✅ apna public key
     })();
 
     const form = document.getElementById('contact-form');
@@ -147,7 +151,7 @@
         form.addEventListener("submit", function(e) {
             e.preventDefault();
             const status = document.getElementById("form-status");
-            const email = form.email.value.trim();
+            const email = form.from_email.value.trim(); // ✅ corrected
             const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
 
             if (!emailPattern.test(email)) {
@@ -168,7 +172,8 @@
                 });
         });
     }
-    </script>
+</script>
+
 <script>
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
