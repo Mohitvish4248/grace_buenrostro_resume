@@ -356,30 +356,33 @@ section:nth-child(even) {
 /*
  * Contact Section
  */
+/*
+ * Contact Section
+ */
 #enquiryForm {
     display: flex;
     flex-direction: column;
     max-width: 600px;
     margin: 0 auto;
-    align-items: center; /* Isse button center mein aa jayega */
+    align-items: center;
+    gap: 1rem; /* Fields ke beech mein gap ke liye */
 }
+
 #enquiryForm input,
 #enquiryForm textarea {
     width: 100%;
     padding: 1rem;
-    margin-bottom: 1rem;
     background-color: var(--surface-color);
     border: 1px solid var(--border-color);
     border-radius: 5px;
     font-family: var(--font-family);
     font-size: 1rem;
     color: var(--text-color);
-    /* Inner shadow add kiya */
     box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
 }
 
-#contact-form button {
-    width: 80%; /* Button ki width ko form se thoda chhota kiya gaya hai */
+#enquiryForm button {
+    width: 80%;
     padding: 0.9rem 2.5rem;
     background-color: var(--accent-color);
     color: var(--light-text-color);
@@ -389,32 +392,42 @@ section:nth-child(even) {
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
     box-shadow: var(--card-shadow);
-    /* 3D effect add kiya */
-    transform-style: preserve-3d;
-    perspective: 300px;
-}
-#contact-form button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--glossy-gradient);
-    opacity: 1;
-    transition: transform 0.4s ease-out;
-    transform: translateX(-100%) skewX(-30deg);
 }
 
-#contact-form button:hover::before {
-    transform: translateX(150%) skewX(-30deg);
-}
-
-#contact-form button:hover {
+#enquiryForm button:hover {
     background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: var(--hover-shadow);
+}
+
+.button-group {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* LinkedIn Button & Icon Styling */
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #0077B5;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.linkedin-btn:hover {
+    background-color: #0e6795;
+}
+
+.linkedin-icon {
+    width: 24px;
+    height: 24px;
+}
     /* 3D effect aur tez kiya */
     transform: translateY(calc(-1 * var(--depth-small))) translateZ(var(--depth-small));
     box-shadow: var(--hover-shadow);
