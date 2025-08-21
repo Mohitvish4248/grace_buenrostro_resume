@@ -1,56 +1,17 @@
-<script type="text/javascript">
-    var gk_isXlsx = false;
-    var gk_xlsxFileLookup = {};
-    var gk_fileData = {};
-    function filledCell(cell) {
-      return cell !== '' && cell != null;
-    }
-    function loadFileData(filename) {
-    if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-        try {
-            var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-            var firstSheetName = workbook.SheetNames[0];
-            var worksheet = workbook.Sheets[firstSheetName];
-
-            // Convert sheet to JSON to filter blank rows
-            var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-            // Filter out blank rows (rows where all cells are empty, null, or undefined)
-            var filteredData = jsonData.filter(row => row.some(filledCell));
-
-            // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
-            var headerRowIndex = filteredData.findIndex((row, index) =>
-              row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
-            );
-            // Fallback
-            if (headerRowIndex === -1 || headerRowIndex > 25) {
-              headerRowIndex = 0;
-            }
-
-            // Convert filtered JSON back to CSV
-            var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
-            csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-            return csv;
-        } catch (e) {
-            console.error(e);
-            return "";
-        }
-    }
-    return gk_fileData[filename] || "";
-    }
-</script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace Buenrostro - Resume</title>
+    <title>Grace Buenrostro- Resume</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-   <header>
+    <header>
     <nav>
-        <div class="nav-brand">GRACE BUENROSTRO</div>
+        <div class="nav-brand">Grace Buenrostro</div>
         <div class="nav-toggle">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -68,7 +29,7 @@
 
     <section id="home">
         <h1>Grace Buenrostro</h1>
-        <h2>Director of People & Operations | Recruiting Leader  | Organizational Strategist</h2>
+        <h2>Director of People & Operations | Recruiting Leader | Organizational Strategist</h2>
         <p>Experienced leader with 9+ years scaling organizations, modernizing talent acquisition, and building operational infrastructure.</p>
         <a href="#contact" class="cta-btn">Get in Touch</a>
     </section>
@@ -161,71 +122,63 @@
     </section>
 
     <section id="contact">
-        <h2>Contact</h2>
-        <form id="enquiryForm">
-            <input type="text" name="name" placeholder="Name" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <textarea name="message" placeholder="Message" required></textarea>
-            <button type="submit">Send Message</button>
-            <p id="form-status"></p>
-        </form>
-        <div class="button-group">
-            <a href="https://linkedin.com/in/grace-buenrostro" class="linkedin-btn">
-                <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" class="linkedin-icon">
-                LinkedIn Profile
-            </a>
-        </div>
-    </section>
-
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script>
+    <h2>Contact</h2>
+    <form id="contact-form">
+        <input type="text" name="from_name" placeholder="Name" required>
+        <input type="email" name="from_email" placeholder="Email" required>
+        <textarea name="message" placeholder="Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <div class="button-group">
+        <a href="https://https://www.linkedin.com/in/grace-buenrostro/" class="resume-btn"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
+    </div>
+</section>
+<footer>
+    &copy; 2025 Grace Buenrostro. All rights reserved.
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
     (function() {
-        emailjs.init("NHHxSa9QjFBm4PL8w");
+        emailjs.init(""); // Public Key
     })();
 
-    const form = document.getElementById("enquiryForm");
-    if (form) {
-        form.addEventListener("submit", function(e) {
-            e.preventDefault();
-            const status = document.getElementById("form-status");
-            const email = form.email.value.trim();
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-            if (!emailPattern.test(email)) {
-                status.textContent = "❌ Please enter a valid Gmail address (e.g. yourname@gmail.com)";
-                status.style.color = "red";
-                return;
-            }
+        emailjs.sendForm('', 'template_gwwenja', this)
+            .then(function() {
+                alert('Message sent successfully!');
+                document.getElementById('contact-form').reset();
+            }, function(error) {
+                alert('Failed to send message. Error: ' + JSON.stringify(error));
+            });
+    });
+</script>
+<script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
 
-            emailjs.sendForm("service_gef3syk", "template_gwwenja", form)
-                .then(() => {
-                    status.textContent = "✅ Enquiry Sent Successfully!";
-                    status.style.color = "#10b981";
-                    form.reset();
-                }, (err) => {
-                    status.textContent = "❌ Failed to send. Please try again.";
-                    status.style.color = "red";
-                    console.log(err);
-                });
-        });
-    }
-    </script>
-
-    <!-- Navbar toggle -->
-    <script>
-    const navToggle = document.querySelector(".nav-toggle");
-    const navMenu = document.querySelector(".nav-menu");
-
-    navToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
+    navToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
     });
 
-    document.querySelectorAll(".nav-menu a").forEach(link => {
-        link.addEventListener("click", () => {
-            navMenu.classList.remove("active");
+    // Close the menu on link click
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
         });
     });
-    </script>
+</script>
+<script>
+    window.onload = function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+</script>
 </body>
 </html>
