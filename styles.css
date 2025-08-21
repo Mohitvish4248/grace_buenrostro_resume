@@ -384,7 +384,7 @@ section:nth-child(even) {
 
 /* "Send Message" button ke liye styling */
 #enquiryForm button {
-    width: 80%;
+     width: 80%; /* Button ki width ko form se thoda chhota kiya gaya hai */
     padding: 0.9rem 2.5rem;
     background-color: var(--accent-color);
     color: var(--light-text-color);
@@ -394,7 +394,12 @@ section:nth-child(even) {
     font-size: 1rem;
     font-weight: 600;
     transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
     box-shadow: var(--card-shadow);
+    /* 3D effect add kiya */
+    transform-style: preserve-3d;
+    perspective: 300px;
 }
 
 #enquiryForm button:hover {
@@ -410,25 +415,28 @@ section:nth-child(even) {
 
 /* LinkedIn Button & Icon Styling */
 .linkedin-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-block;
+    padding: 0.5rem 2.5rem;
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
     text-decoration: none;
-    color: #fff;
-    background-color: #0077B5;
-    padding: 10px 15px;
     border-radius: 5px;
-    font-weight: 500;
-    transition: background-color 0.3s ease;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    /* 3D effect add kiya */
+    transform-style: preserve-3d;
+    perspective: 300px;
 }
 
 .linkedin-btn:hover {
-    background-color: #0e6795;
+    transform: translateX(150%) skewX(-30deg);
 }
 
 .linkedin-icon {
-    width: 24px;
-    height: 24px;
+    margin-right: 8px;
 }
 #contact-form button::before {
     content: '';
