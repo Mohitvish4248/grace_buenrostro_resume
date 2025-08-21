@@ -356,7 +356,7 @@ section:nth-child(even) {
 /*
  * Contact Section
  */
-#contact-form {
+#enquiryForm {
     display: flex;
     flex-direction: column;
     max-width: 600px;
